@@ -157,3 +157,133 @@ console.log(findSecondLargest(mixedArr3));
 //* 1 array has only one value or no value (empty array)
 //* 2.array has negative numbers
 //* 3. array has duplicates.
+
+//! lesson 2-7 Loop in Loop
+//* loop within a loop
+for (let i = 0; i < 3; i++){
+
+    for (let j = 0; j < 3; j++) {
+        console.log("i=" + i + " j=" + j)
+    }
+} 
+
+
+//! lesson 2-7 Loop in Loop
+
+//* loop within a loop
+for (let i = 0; i < 3; i++){
+
+    for (let j = 0; j < 3; j++) {
+        console.log("i=" + i + " j=" + j)
+    }
+}
+/*
+*Ans
+*  i=0 j=0
+*  i=0 j=1
+*  i=0 j=2
+*  i=1 j=0
+*  i=1 j=1
+*  i=1 j=2
+*  i=2 j=0
+*  i=2 j=1
+*  i=2 j=2
+
+*/
+
+for (let i = 0; i < 3; i++){
+
+    for (let j = 0; j < i; j++) {
+        console.log("i=" + i + " j=" + j)
+    }
+}
+/*
+* Ans
+ * i=1 j=0
+ * i=2 j=0
+ * i=2 j=1
+*/
+
+for (let i = 0; i < 5; i++) {
+
+    for (let j = 0; j <= i; j++) {
+        console.log("i=" + i + " j=" + j)
+    }
+}
+//* ans
+//  i=0 j=0
+//  i=1 j=0
+//  i=1 j=1
+//  i=2 j=0
+//  i=2 j=1
+//  i=2 j=2
+//  i=3 j=0
+//  i=3 j=1
+//  i=3 j=2
+//  i=3 j=3
+//  i=4 j=0
+//  i=4 j=1
+//  i=4 j=2
+//  i=4 j=3
+//  i=4 j=4
+//* loop ran for 15 times
+for (let i = 0; i < 3; i++) {
+
+    for (let j = i; j > 0; j--) {
+        console.log("i=" + i + " j=" + j)
+    }
+}
+//* ans
+//* Console
+//  i=1 j=1
+//  i=2 j=2
+//  i=2 j=1
+
+
+for (let i = 5; i >0; i--) {
+
+    for (let j = 0; j > i; j++) {
+        console.log("i=" + i + " j=" + j)
+    }
+}
+//*ans
+// Console
+//  i=5 j=0
+//  i=5 j=1
+//  i=5 j=2
+//  i=5 j=3
+//  i=5 j=4
+//  i=4 j=0
+//  i=4 j=1
+//  i=4 j=2
+//  i=4 j=3
+//  i=3 j=0
+//  i=3 j=1
+//  i=3 j=2
+//  i=2 j=0
+//  i=2 j=1
+//  i=1 j=0
+//*-  loop ran for 15 times
+
+//! Lesson 2-8 Star Pattern
+
+//* 4*4 star pattern
+let n = 4
+
+//* outer loop is responsible for every row 
+for (let i = 0; i < 4; i++ ) {
+    let row = "";
+    //* below loop is responsible for single line column containing 4 stars
+    for (let j = 0; j < n; j++){
+        row=row+"*"
+    }
+    console.log(row);
+}
+//*ans
+// Console
+//  ****
+//  ****
+//  ****
+//  ****
+//* i loop is responsible for number of row , so change in i loop will number of starts in row, and j loop will ve responsible for number of columns , so change in j loop will increase number of columns
+//* 12 min
