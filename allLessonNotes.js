@@ -362,6 +362,7 @@ for (let i = 0; i < n; i++) {
 //* 1
 
 //* ans
+/*
 let n = 5;
 for (let i = 0; i < n; i++) {
     
@@ -371,5 +372,72 @@ for (let i = 0; i < n; i++) {
     }
     console.log(row)
 }
+*/
+//* print below pattern
+//* *****
+//* ****
+//* ***
+//* **
+//* *
+//* ans
+/*
+let n = 5;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < n-i ; j++){
+        row=row+ "*"
+    }
+    console.log(row)
+}*/
 
-//* 
+//* Print below star pattern:-
+//*     *
+//*    **
+//*   ***
+//*  ****
+//* *****
+
+//* ans
+//* we will write two loops inside one for adding spaces and one for * stars.
+/*
+let n = 5;
+for (let i = 0; i < n; i++){
+   let row = "";
+    for (let j = 0; j < n - (i + 1); j++) {
+        //* for spaces
+        row = row + " "
+    }
+    for (let k = 0; k < i + 1; k++){
+        //* for stars
+        row=row+"*"
+    }
+    console.log(row);
+}*/
+
+//* print below pattern
+//* 1
+//* 10
+//* 101
+//* 1010
+//* 10101
+
+//* ans 
+let n = 5;
+for (let i = 0; i < n; i++){
+    let row = "";
+    let toggle = 1;
+
+    for (let j = 0; j < i + 1; j++){
+        row = row + toggle;
+
+        //* switch the toggle
+        if (toggle == 1) {
+            toggle=0
+        } else {
+            toggle=1
+        }
+    }
+    console.log(row);
+}
+//*1H05m
