@@ -268,22 +268,108 @@ for (let i = 5; i >0; i--) {
 //! Lesson 2-8 Star Pattern
 
 //* 4*4 star pattern
+//* print below star pattern using for loop:-
+//  ****
+//  ****
+//  ****
+//  ****
+//*ans
+/*
 let n = 4
 
 //* outer loop is responsible for every row 
 for (let i = 0; i < 4; i++ ) {
     let row = "";
-    //* below loop is responsible for single line column containing 4 stars
+    //* below loop is responsible for  columns(single line) containing 4 stars
     for (let j = 0; j < n; j++){
         row=row+"*"
     }
     console.log(row);
 }
-//*ans
-// Console
-//  ****
-//  ****
-//  ****
-//  ****
-//* i loop is responsible for number of row , so change in i loop will number of starts in row, and j loop will ve responsible for number of columns , so change in j loop will increase number of columns
-//* 12 min
+*/
+
+//* i loop is responsible for number of row , so change in i loop will number of starts in row, and j loop will ve responsible for number of columns , so change in j loop will increase number of columns.
+
+//*----------------
+//* print below star pattern
+//* *
+//* **
+//* ***
+//* ****
+
+//* ans
+//* i loop is responsible for rows so as it has 4 rows , so in i loop condition will i < 4, but in j loop in first iteration it should run 1 time to print 1 start , in second iteration it should run 2 times to print 2 start , in 3rd 3 times and in 4th it should run 4 times .to do it in j loop the condition should be j < i+1 , then only we will get wanted result.
+//* when 1=0 i want one * start to be printed , when i is 1 we want 2 star to be printed , when i is 2 , then 3 start should be printed and when i is 3 then 4 stars to be printed.
+//* that why in j loop we need this condition j<i+1.
+/*
+let n = 4;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < i + 1; j++){
+        row=row+"*"
+    }
+    console.log(row)
+}
+*/
+//* print below pattern:-
+//* 1
+//* 1 2
+//* 1 2 3
+//* 1 2 3
+//* 1 2 3 4
+//* 1 2 3 4 5
+
+//* ans
+/*
+let n = 5;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j <= i ; j++){
+        row=row+ (j+1)
+    }
+    console.log(row)
+}*/
+//* j < i+1 is same as writing j <= i
+
+//* print below pattern
+
+//* 1
+//* 22
+//* 333
+//* 4444
+//* 55555
+
+//* ans
+/*
+let n = 5;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j <= i ; j++){
+        row=row+ (i+1)
+    }
+    console.log(row)
+}*/
+//* j < i+1 is same as writing j <= i
+
+//* print below pattern
+//* 12345
+//* 1234
+//* 123
+//* 12
+//* 1
+
+//* ans
+let n = 5;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < n-i ; j++){
+        row=row+ (j+1)
+    }
+    console.log(row)
+}
+
+//* 
