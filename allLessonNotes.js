@@ -423,6 +423,7 @@ for (let i = 0; i < n; i++){
 //* 10101
 
 //* ans 
+/*
 let n = 5;
 for (let i = 0; i < n; i++){
     let row = "";
@@ -440,4 +441,57 @@ for (let i = 0; i < n; i++){
     }
     console.log(row);
 }
-//*1H05m
+*/
+//* print below pattern
+//* 1
+//* 01
+//* 010
+//* 1010
+//* 10101
+//* ans
+//* in the previous pattern toggle  was refreshing in every iteration but in this pattern if we don't refresh the the toggle then we can print this pattern easily. to do that we just have to initialize the toggle outside of the loop.
+let n = 5;
+ let toggle = 1;
+for (let i = 0; i < n; i++){
+    let row = "";
+   
+
+    for (let j = 0; j < i + 1; j++){
+        row = row + toggle;
+
+        //* switch the toggle
+        if (toggle == 1) {
+            toggle=0
+        } else {
+            toggle=1
+        }
+    }
+    console.log(row);
+}
+
+//* lesson 2-9 Count Digit
+//* write a function that returns the count of digits in a number
+
+function countDigits(n) {
+    //*corner case 1:- if the number is 0 , zero then is should return 1 not 0 , because 0 is also a digit,so we handled this corner case like below
+    //* if number value is zero
+    if (n == 0) return 1;
+    //*corner case 2:-  if the number is a negative number then also our solution should work , to do that we have convert the negative value to positive value first using Math.abs(number) then our solution will also work for negative values.
+    //* converting negative num to positive
+    n = Math.abs(n);
+
+    let count = 0;
+    while (n > 0) {
+        n = Math.floor(n / 10);
+        count++
+    }
+    return count
+}
+ 
+console.log(countDigits(53242));
+
+//* we used a variable count which will keep track of the count; now we will divide the number by 10 and every time we will do this division we will increase the count by 1; and to we also have use Math.floor() to round down the value , and we will do it till number is greater than 0;
+
+
+//* lesson 2-10 Palindrome
+//*  16 min
