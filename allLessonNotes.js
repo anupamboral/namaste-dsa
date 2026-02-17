@@ -422,7 +422,7 @@ for (let i = 0; i < n; i++){
 //* 1010
 //* 10101
 
-//* ans 
+//* ans
 /*
 let n = 5;
 for (let i = 0; i < n; i++){
@@ -450,6 +450,7 @@ for (let i = 0; i < n; i++){
 //* 10101
 //* ans
 //* in the previous pattern toggle  was refreshing in every iteration but in this pattern if we don't refresh the the toggle then we can print this pattern easily. to do that we just have to initialize the toggle outside of the loop.
+/*
 let n = 5;
  let toggle = 1;
 for (let i = 0; i < n; i++){
@@ -468,10 +469,10 @@ for (let i = 0; i < n; i++){
     }
     console.log(row);
 }
-
+*/
 //* lesson 2-9 Count Digit
 //* write a function that returns the count of digits in a number
-
+/*
 function countDigits(n) {
     //*corner case 1:- if the number is 0 , zero then is should return 1 not 0 , because 0 is also a digit,so we handled this corner case like below
     //* if number value is zero
@@ -489,9 +490,67 @@ function countDigits(n) {
 }
  
 console.log(countDigits(53242));
-
+*/
 //* we used a variable count which will keep track of the count; now we will divide the number by 10 and every time we will do this division we will increase the count by 1; and to we also have use Math.floor() to round down the value , and we will do it till number is greater than 0;
 
 
 //* lesson 2-10 Palindrome
-//*  16 min
+//*  palindrome means if we reverse a number then it should be same as the original number.So we will create a function which will check if the number is a palindrome number or not.
+//* create a function which checks if the number is a palindrome number or not
+
+/*
+let isPalindrome = function (num) {
+    //* corner case:- if num is negative value then always it can not be be a palindrome number because of the - sign, so if it is a - negative number we will return just false;
+    if (num < 0) return false;
+
+    let numCopy = num;
+    let rev = 0;
+
+    while (num > 0) {
+        let lastDigit = num % 10;
+        rev = (rev * 10) + lastDigit;
+        num = Math.floor(num / 10);
+    }
+    if (rev === numCopy) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+console.log(isPalindrome(2567652))
+*/
+//* Lesson 2-11 Reverse Integer
+
+//* reverse an integer, and if the reversed integer go outside the 32 bit integer range( not below than - 2 to the power 31 to  +2 to the power 31 range) then return just 0.
+
+let reverse = function (num) {
+    //*corner case 1:- keeping track of the original inputted number so we can compare at last if it is negatibve value or not.
+    let numCopy = num;
+    //* if numb is ngative value then converting it to a positive value
+    num = Math.abs(num);
+    //* setting initial value of reverse variable to 0
+    let rev = 0;
+
+    while (num > 0) {
+        //* calculating last digit
+        let lastDigit = num % 10;
+        //* adding last digit to this rev varibale in every iteration
+        rev = (rev * 10) + lastDigit;
+        //* deleting last digit fromthe actual number
+        num = Math.floor(num / 10)
+    }
+
+    //* 32 bit condition handling
+    let limit = Math.pow(2, 31)
+    if (num < -limit || num > limit) return 0; 
+
+    //* if num is a negative num then returning negatived reversed nogative value other wise returning positive Value(corner case 1:- negative value)
+    return numCopy < 0 ? -rev : rev;
+};
+
+console.log(reverse(-544423))
+
+//* Lesson 3-1 Time and Space Complexity
+//* Time complexity:- It is used to measure the efficiency of an algorithm in terms of speed , as the input size grows.
+43.44
