@@ -553,4 +553,25 @@ console.log(reverse(-544423))
 
 //* Lesson 3-1 Time and Space Complexity
 //* Time complexity:- It is used to measure the efficiency of an algorithm in terms of speed , as the input size grows.
-43.44
+//* Big O Notation:- represents worst case time complexity.
+//* Linear Search has time complexity of O(n).
+//* Binary Search has time complexity of O(log n).
+//*   whenever we see a nested loop , so  a loop inside another loop then the time complexity is O(n2) (O of n square) .
+//* when we have a loop which runs n times and inside that loop we are performing any task which runs log n  times that means the time complexity is O(n log n).
+//* when we have 3 nested loops that means the time complexity is O(n3) (O of n cube).
+//* also O(2m) (2 to the power n)
+//* also O(n!)(O of n factorial) this is very high complexity
+//* O(1) :- it is also called constant time complexity, it means how much the input size grows , time complexity will not change , like find a particular index of an array like arr[5].
+
+//* In terms of efficiency the best is O(1);
+//* the efficiency chart will loop like :- O(1) > O(log n) > O (n)  > O (n log n) > O (n2)(n square) > O ( 2n) (2 to the power n) > O(n!) (n factorial)
+//* when we are using space for1 or 4 ,5 of any number f variable which is countable that means space complexity is o(1).
+//* suppose we are creating a array which has n number of elements then the space complexity is O(n).
+//* suppose we are using 2 d matrix of n*n that means space complexity is n2 (n square).
+//* if my time complexity is O(2n) , or O(3n) or O(10n) , we ignore  the number and say complexity is O(n).
+//* even for O(n2 +n) (n square + n) then also we will say time complexity is O(n2) (n square) and ignore the +n.
+//* so the bigger one is the actual time complexity.
+
+//* Lesson - 4-1 Remove Duplicates
+//* Remove duplicates from an sorted array, the array is in non decreasing order which means it can have duplicates:-
+//* 16.48
