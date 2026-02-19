@@ -574,4 +574,67 @@ console.log(reverse(-544423))
 
 //* Lesson - 4-1 Remove Duplicates
 //* Remove duplicates from an sorted array, the array is in non decreasing order which means it can have duplicates:-
-//* 16.48
+//* to solve this problem we will use two pointer approach, first pointer to find all the unique elements and second pointer to keep track of the position of unique elements, so whenever we will find a unique element then we will update the value of that position to that unique element and at last we will return the count of unique elements which is also the length of array without duplicates.
+
+function removeDuplicates(nums) {
+
+    let x = 0;//* pointer to keep track of the position of unique elements
+    for (let i = 0; i < nums.length; i++) {
+        //* i is pointer which will go through every number\
+
+        if (nums[i] > nums[x]) {
+            //* moving the pointer to the next when a[i] is greater than a[x] pointer
+            x = x + 1;
+            //* updating the pointer index value with bigger unique elm
+            nums[x] = nums[i];
+        }
+    }
+    return x + 1;//* at last , x pointer will be positioned at the last unique index, but as index is 0 based , so we have to add 1 to get the number of unique elements;
+
+};
+
+const nonDecreasingArray=[0,0,1,1,1,2,2,3,3,4,5]
+
+console.log(removeDuplicates(nonDecreasingArray));
+
+//* Lesson - 4-2 Remove Element
+
+
+function removeElement(nums,val) {
+
+    let x = 0;//* pointer to keep track of the position of  numbers
+    for (let i = 0; i < nums.length; i++) {
+        //* i is pointer which will go through every number\
+
+        //* shift elements to the left if it is not equal to val
+        if (nums[i] !== val ) {
+      
+            nums[x] = nums[i];
+                  x = x + 1;
+        }
+    }
+    return x ;
+
+};
+
+const numberArray=[2,3,5,2,6,2,7,2,9,2]
+
+console.log(removeElement(numberArray, 2));
+
+//* Lesson 4-3 Reverse String
+
+function reverseString(s) {
+    let length = s.length;
+    let halfLength = Math.floor(length / 2);
+
+    for (let i = 0; i < halfLength; i++){
+        //* swapping values using temporary variable
+        let temp = s[i];
+        s[i] = s[length - 1 - i]
+        s[length - 1 - i] = temp;
+        
+    }
+  return s
+};
+
+console.log(reverseString(["h","e","l","l","o"]));
