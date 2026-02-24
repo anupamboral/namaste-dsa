@@ -637,4 +637,48 @@ function reverseString(s) {
   return s
 };
 
-console.log(reverseString(["h","e","l","l","o"]));
+console.log(reverseString(["h", "e", "l", "l", "o"])); 
+
+//* Lesson 4-4 Best Time to Buy and Sell
+//* you are given ana array named prices where prices[i] is the price of given stock on i th day.
+//* you want to maximize your profit by choosing an single day to buy one stock and choosing a different day in future to sell the stock.
+//* return the maximum profit you can achieve from this this transaction and if you can not achieve any profit then return 0.
+
+let maxProfit = function (prices) {
+    let min = prices[0];
+    let maxProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] - min > maxProfit) {
+            maxProfit = prices[i] - min;
+        }
+        if (prices[i] < min) {
+            min = prices[i]
+        }
+    }
+    return maxProfit;
+};
+console.log(maxProfit(7, 1, 5, 3, 6, 4, 8));
+
+
+//* Lesson 4-5 Merge Sorted Arrays
+
+let merge = function (nums1, m, nums2, n) {
+    
+    let p1 = m - 1;
+    let p2 = n - 1;
+    for (let i = m + n - 1; i >= 0; i--){
+        if (p < 0) break;
+        if (p >= 0 && nums1[p1] > nums2[p2]) {
+            nums[i] = nums[p1];
+            p1--
+        }
+        else {
+            nums1[i] = nums2[p2];
+            p2--
+        }
+    }
+
+}
+
+
+//* Lesson
