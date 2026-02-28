@@ -681,4 +681,161 @@ let merge = function (nums1, m, nums2, n) {
 }
 
 
-//* Lesson
+//* Lesson 4-6 Move Zeros
+//* we will shift all the non zero values to the front , make sure all zeros come at the last.
+
+
+function moveZeros(nums) {
+    
+    //* using two pointer approach
+    let x = 0;
+    for (let i = 0; i < nums.length; i++){
+        if (nums[i] !== 0) {
+            nums[x] = nums[i];
+            x++;
+        }
+    }
+
+    //* filling remaining blanks with 0
+    for (let i = x; i < nums.length; i++) {
+        nums[i]=0
+     }
+}
+
+
+//* Lesson 4-7 Max Consecutive
+
+function findMaxConsecutiveOnes(nums) {
+    let currCount = 0;
+    let maxCount = 0;
+    for (let i = 0; i < nums.length; i++){
+        //* when current number is 1 increase current count by 1
+        if (nums[i] === 1) {
+            currCount++
+        } else {
+            //* when current number is 0 , update max Count to current count or max which one is greater, and set currCount to 0;
+            maxCount = Math.max(currCount, maxCount)
+            currCount = 0;
+        }
+    }
+    //* returning larger number between currCount and maxCount
+    return Math.max(currCount, maxCount);
+}
+
+//* Lesson 4-8 Missing Number
+
+function  missingNum(nums){
+    let n = nums.length; //* total numbers in the array
+    let totalSum = n * (n + 1) / 2;//* calculating total sum
+    
+    let partialSum = 0;
+
+    for (let i = 0; i < nums.length; i++){
+        //* calculating sum with out the missing num
+        partialSum =partialSum+nums[i]
+    }
+
+    //* calculating missing num by subtracting partial sum from total sum
+    return totalSum - partialSum;
+
+}
+
+//* Lesson 4-9 Single Number
+//* when we xor num with 0 it returns the same number but when we xor a num with itself it gives 0 , in this problem to remove duplicates we are using xor concept.
+function singleNumber(nums) {
+    let xor = 0;
+    for (let i = 0; i < nums.length; i++){
+        xor = xor ^ nums[i];
+    }
+
+    return xor;
+};
+
+//*
+//! Lesson 5-1 Recursion
+//* recursion :- function calls itself to solve smaller version of the same problem
+
+//* base case:- stop condition (when to stop  calling itself)
+//* recursive case :- part where function calls itself.
+
+//* we should always write the base case at the top, and make sure it stops the recursion. if we don't stop it then stack overflow can happen.
+//* example of recursion (if we remove the base case it will go into a infinite loop , and after a point stack overflow will happen )
+function fun(num) {
+    //* base case
+    if (num === 0) return;
+    //* recursive case
+    console.log(num);
+    num = num - 1;
+    fun(num);
+};
+
+let a = 10;
+fun(a)
+
+function fun2(num) {
+    if (num > 10) return;
+
+    console.log(num);
+    // num = num + 1;
+    // fun2(num)
+    fun2(++num)//* same as writing above two lines
+};
+
+fun2(1)
+
+//* Lesson 5-2 Sum of First n numbers
+
+//*important formula :- 
+// * sum of m = n+sum of (n-1)
+//*Example:-
+// * sum of 5 = 5 + sum of (5-1) = 5 + sum of 4
+
+function sum(n) {
+    if (n == 0) return 0;
+    return n +sum(n-1)
+}
+console.log(sum(5));
+
+//! Lesson 5-3 Sum of all numbers in Array
+let arr1 = [5, 3, 2, 0, 1];
+function sum2(n) {
+    if (n == 0) return arr1[0];
+    return arr1[n]+sum2(n-1)
+};
+console.log(sum2(arr1.length - 1));
+
+//* sum of odd numbers
+
+function sum3(n) {
+    let isOdd = ((arr1[n] % 2) != 0);
+    if (n == 0) return isOdd ? arr1[n] : 0;
+    
+    return  ((isOdd ? arr1[n] : 0)+(sum3(n-1)))
+};
+console.log(sum3(arr1.length - 1));
+
+//! Lesson 5-4 Factorial of n
+
+function factorial(n) {
+    if (n == 1) return 1; //* base case because factorial of 1 is always 1
+    
+    return n*factorial(n-1)
+}
+console.log(factorial(5));
+
+//* Lesson 5-5 Power of Two
+
+let isPowerOfTwo = function (n) {
+    if (n == 1) return true;
+    else if ((n % 2 != 0) || n < 1) return false;
+
+    return isPowerOfTwo(n/2)
+}
+console.log(isPowerOfTwo(16));
+
+//* Lesson 5-6 Recursion Masterclass
+//* fibonacci numbers starts from 0,1.and every number is sum of previous two numbers example :- 0,1,1,2,3,5,8
+//* formula of fibonacci num
+f(n) = f(n - 1) + f(n - 2)
+
+19.22
