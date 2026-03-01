@@ -836,6 +836,52 @@ console.log(isPowerOfTwo(16));
 //* Lesson 5-6 Recursion Masterclass
 //* fibonacci numbers starts from 0,1.and every number is sum of previous two numbers example :- 0,1,1,2,3,5,8
 //* formula of fibonacci num
-f(n) = f(n - 1) + f(n - 2)
+//* f(n) = f(n - 1) + f(n - 2)
 
-19.22
+function fib(n){
+    //* base case
+    if (n <= 1) return n;
+    //* recursive case
+    return fib(n-1)+fib(n-2)
+
+}
+console.log(fib(8))
+//* here time complexity O (2n) two to the power of n , also called exponential time complexity. which is not good, it is very high time complexity.
+
+///*  Lesson 6-1 Linear Search
+//* Linear search is an algorithm which searches for an element inside an array
+
+let arr3 = [3, 2, 6, 0, 5];
+
+function linearSearch(arr,target) {
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] === target) {
+            return i;//* if current index is equal to the target then return the index;
+        }
+    }
+    return -1;
+}
+
+console.log(linearSearch(arr3, 0));
+
+//* Lesson 6-2 binary Search
+//* binary search is an algorithm which searches for an element inside an array, but it will only work when the array is sorted.
+
+function binarySearch(nums,target) {
+    let left = 0;
+    let right = nums.length - 1;
+    while (right >= left) {
+        let middle = Math.floor((left + middle) / 2);
+
+        if (target === nums[middle]) {
+            return middle;
+        } else if (target < nums[middle]) {
+            right = middle - 1;
+        } else {
+            left = middle + 1
+        }
+    }
+    return -1;
+};
+//* time complexity (log2 n) (log base2 n )
+//* as the space complexity is constant so it will be o(1) not O(3), as it is constant.
