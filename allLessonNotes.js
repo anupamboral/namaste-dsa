@@ -864,7 +864,7 @@ function linearSearch(arr,target) {
 
 console.log(linearSearch(arr3, 0));
 
-//* Lesson 6-2 binary Search
+//! Lesson 6-2 binary Search
 //* binary search is an algorithm which searches for an element inside an array, but it will only work when the array is sorted.
 
 function binarySearch(nums,target) {
@@ -885,3 +885,55 @@ function binarySearch(nums,target) {
 };
 //* time complexity (log2 n) (log base2 n )
 //* as the space complexity is constant so it will be o(1) not O(3), as it is constant.
+//* Lesson 6-3 Bubble Sort
+//* this sorting algorithm checks values pair by pair, to it shifts smaller value to the left side and larger value to the right side.and it does this swapping/shifting again and again till the array is sorted properly.
+//* this algorithm is called bubble sort because we are bubbling up the largest element to the last of the array in first iteration.
+function bubbleSort(arr) {
+    let n = arr.length;
+    for (let i = 0; i < n - 1; i++){
+        //* isSwapped variable is for breaking the loop when no swap has happened 
+        let isSwapped = false;
+        for (let j = 0; j < n - 1 - i; j++){
+            if (arr[j] > arr[j + 1]) {
+                //* swapping values when left index's value is larger than right side value
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+
+                isSwapped = true;
+            }
+
+            if (!isSwapped) break;
+        }
+    }
+    return arr;
+}
+
+let arr2 = [5, 3, 2, 6, 0, 1];
+
+console.log(bubbleSort(arr2));
+//* In the above code the outer loop Is running n-1 times And the inner loop is running n-1-i times So the outer loop And the inner loop both has The time complexity is O(n2)(n square) times and space complexity is O(1).for a sorting algorithm this is not a good time complexity.
+
+//* Lesson 6-4 Selection Sort
+let selectionSort = function (arr) {
+    let n = arr.length;
+    for (let i = 0; i < n - 1; i++) {
+        //* find the minimum in the array
+        let min = i;
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        if (min != i) {
+            let temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+    }
+    return arr;
+};
+let arr4 = [3, 5, 2, 1, 6, 8];
+
+console.log(selectionSort(arr4));
+//* In the above code the outer loop Is running n-1 times And the inner loop is running n times So the outer loop And the inner loop both has The time complexity is O(n2)(n square) times and space complexity is O(1).for a sorting algorithm this is not a good time complexity.
