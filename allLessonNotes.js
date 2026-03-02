@@ -937,3 +937,22 @@ let arr4 = [3, 5, 2, 1, 6, 8];
 
 console.log(selectionSort(arr4));
 //* In the above code the outer loop Is running n-1 times And the inner loop is running n times So the outer loop And the inner loop both has The time complexity is O(n2)(n square) times and space complexity is O(1).for a sorting algorithm this is not a good time complexity.
+
+//! Lesson 6-5 Insertion sort
+
+let insertionSort = function (arr) {
+    let n = arr.length;
+    for (let i = 1; i < n; i++){
+        let curr = arr[i];
+        let prev = i - 1;
+        while (arr[prev] > curr && prev >= 0) {
+            arr[prev + 1] = arr[prev]
+            prev--;
+        }
+        arr[prev + 1] = curr;
+    }
+    return arr;
+}
+
+let arr5 = [5, 4, 6, 7, 2, 0, 1, 6];
+console.log(insertionSort(arr5));
