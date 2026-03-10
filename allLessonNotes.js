@@ -643,7 +643,7 @@ console.log(reverseString(["h", "e", "l", "l", "o"]));
 //* you are given ana array named prices where prices[i] is the price of given stock on i th day.
 //* you want to maximize your profit by choosing an single day to buy one stock and choosing a different day in future to sell the stock.
 //* return the maximum profit you can achieve from this this transaction and if you can not achieve any profit then return 0.
-
+/*
 let maxProfit = function (prices) {
     let min = prices[0];
     let maxProfit = 0;
@@ -680,7 +680,7 @@ let merge = function (nums1, m, nums2, n) {
 
 }
 
-
+*/
 //* Lesson 4-6 Move Zeros
 //* we will shift all the non zero values to the front , make sure all zeros come at the last.
 
@@ -967,7 +967,7 @@ function mergeSort(arr) {
 }
 
 
-function merge(left, right) {/
+function merge(left, right) {
     
     let res = [];
     let j = 0;
@@ -986,5 +986,159 @@ function merge(left, right) {/
 
 //* time complexity of (n log base 2 of n) nlog2n; which is a good time complexity
 
-//*----------------------------------------------------------
-let count = 0;
+//!----------------------------------------------------------
+
+   //*Write a program to print even numbers from 1 to n except numbers which are divisible by 4.
+
+//* Use Continue statement to avoid printing. */
+function print_output(n){
+ 
+    for (let i = 0; i <= n; i++){
+
+        if (i % 4 === 0) {
+            continue;
+        }
+
+        if (i % 2 === 0) {
+            console.log(i)
+        }
+    }
+    
+    
+}
+
+//* Write a program to print all the numbers from 1 to n .If m is present in between the sequence then stop printing any other number and break out of the loop.
+//* Input :-
+//* n = 10 m = 4
+//* Output :-
+//* 1
+//* 2
+//* 3
+
+//* ans
+function print_series(n,m){
+     //** Print the following series from 1 to n if m is present stop printing the series 
+    //*   Note print all the numbers in a separate line 
+
+    for (let i = 1; i <= n; i++){
+        if (i === m) {
+            break;
+        }
+        console.log(i)
+    }
+    
+    
+}
+
+for (let i = 0; i < 4; i++ ) {
+    let row = "";
+    //* below loop is responsible for  columns(single line) containing 4 stars
+    for (let j = 0; j < 4; j++){
+        row=row+"*"
+    }
+    console.log(row);
+}
+//* ****
+//* ****
+//* ****
+//* ****
+
+let n = 5;
+for (let i = 0; i < 5; i++) {
+    
+    let row = "";
+    for (let j = 0; j < i +1; j++){
+        row=row+"*"
+    }
+    console.log(row)
+}
+//* *
+//* **
+//* ***
+//* ****
+//* *****
+//*-------------------------
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < i+1 ; j++){
+        row=row+ (j+1)
+    }
+    console.log(row)
+}
+//* 1
+//* 1 2
+//* 1 2 3
+//* 1 2 3
+//* 1 2 3 4
+//* 1 2 3 4 5
+//* ----------------------------
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < i+1 ; j++){
+        row=row+ (i+1)
+    }
+    console.log(row)
+}
+//* 1
+//* 22
+//* 333
+//* 4444
+//* 55555
+
+//* -----------------------------
+
+// let n = 5;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < n - i; j++) {
+        row = row + "*"
+    }
+    console.log(row)
+}
+//* *****
+//* ****
+//* ***
+//* **
+//* *
+//* ---------------------
+// let n = 5;
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < n-i ; j++){
+        row=row+ (j+1)
+    }
+    console.log(row)
+}
+//* 12345
+//* 1234
+//* 123
+//* 12
+//* 1
+
+//* ----------------------------
+
+for (let i = 0; i < n; i++) {
+    
+    let row = "";
+    for (let j = 0; j < n-i ; j++){
+        row=row+ (i+1)
+    }
+    console.log(row)
+}
+//* 11111
+//* 2222
+//* 333
+//* 44
+//* 5
+
+// for (let i = 0; i < 5; i++){
+//     let row = "";
+//     for (let j = 0; j < i+1 ; j++){
+//         row= row+(i+1)
+//     }
+//     console.log(row);
+// }
