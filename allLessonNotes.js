@@ -413,7 +413,7 @@ for (let i = 0; i < n; i++){
         row=row+"*"
     }
     console.log(row);
-}*/
+} */
 
 //* print below pattern
 //* 1
@@ -1069,7 +1069,6 @@ for (let i = 0; i < n; i++) {
 //* 1
 //* 1 2
 //* 1 2 3
-//* 1 2 3
 //* 1 2 3 4
 //* 1 2 3 4 5
 //* ----------------------------
@@ -1134,6 +1133,32 @@ for (let i = 0; i < n; i++) {
 //* 333
 //* 44
 //* 5
+//* ---------------------------
+// *    *
+// **   **
+// ***  ***
+// **** ****
+// **********   Print the following pattern using for loop
+
+// let n = 5;
+
+//     for (let i = 1; i <= n; i++){
+//         let row = "";
+//         for (let j = 1; j <= i ; j++){
+//             row=row+"*"
+//         }
+//         let spaceCount = (1 * n) - (1 * i);
+//         for (let k = 1; k <= spaceCount; k++){
+//             row = row + " ";
+//         }
+//         for (let l = 1; l <= i; l++){
+//             row=row+"*"
+//         }
+
+//         console.log(row);
+//     }
+
+//* ---------------------------------
 
 // for (let i = 0; i < 5; i++){
 //     let row = "";
