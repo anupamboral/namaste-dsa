@@ -1134,11 +1134,7 @@ for (let i = 0; i < n; i++) {
 //* 44
 //* 5
 //* ---------------------------
-// *    *
-// **   **
-// ***  ***
-// **** ****
-// **********   Print the following pattern using for loop
+
 
 // let n = 5;
 
@@ -1157,8 +1153,78 @@ for (let i = 0; i < n; i++) {
 
 //         console.log(row);
 //     }
+      
+// *    *
+// **   **
+// ***  ***
+// **** ****
+// **********
 
 //* ---------------------------------
+ let n = 5;
+
+    let i = n;
+
+    while (i >= 1) {
+        let row = "";
+        let j = 1;
+        while (j <= i) {
+            row = row + "*";
+            j++;
+        }
+        console.log(row);
+        i--;
+    }
+
+    let k = 1;
+
+    while (k <= n) {
+        let row = "";
+        let l = 1;
+        while (l <= k) {
+            row = row + "*";
+            l++
+        }
+        console.log(row);
+        k++
+    }
+
+
+//* *****
+//* ****
+//* ***
+//* **
+//* *
+//* *
+//* **
+//* ***
+//* ****
+//* *****
+
+//*  ----------------------------------------
+//* A conditional star pattern uses a conditional statement, like an if-else block, inside a nested loop to decide whether to print a star (*) or a space ( ) at a specific position. Instead of always printing a star, the if condition checks the current row and column numbers to determine what character should be displayed.
+function hollowSquareStarPattern(n) {
+   
+    for (let i = 1; i <= n; i++){
+    let rowOutput = "";
+     
+        for (let j = 1; j <= n; j++){
+            if (i === n ||i===1|| j === 1 || j === n) {
+                rowOutput = rowOutput + "*";
+            } else {
+                rowOutput = rowOutput + " "
+            }
+        }
+        console.log(rowOutput)
+    }
+}
+//* for input 5 out out should be
+//* *****
+//* *   *
+//* *   *
+//* *   *
+//* *****
+//*  ----------------------------------------
 
 // for (let i = 0; i < 5; i++){
 //     let row = "";
