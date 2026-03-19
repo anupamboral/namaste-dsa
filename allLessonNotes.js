@@ -1043,7 +1043,7 @@ for (let i = 0; i < 4; i++ ) {
 //* ****
 //* ****
 
-let n = 5;
+// let n = 5;
 for (let i = 0; i < 5; i++) {
     
     let row = "";
@@ -1163,7 +1163,7 @@ for (let i = 0; i < n; i++) {
 //* ---------------------------------
  let n = 5;
 
-    let i = n;
+    // let i = n;
 
     while (i >= 1) {
         let row = "";
@@ -1233,3 +1233,164 @@ function hollowSquareStarPattern(n) {
 //     }
 //     console.log(row);
 // }
+
+//** -------------------------------------
+/*Given an array find the maximum in it and return it
+
+Example:-
+Input:-
+Arr=[5, 4, 7, 2, 6]
+Ouput:-*/
+
+/*
+function findMax(arr) {
+    // Edge case: if the array is empty
+    if (arr.length === 0) return null;
+
+    let max = arr[0]; // Assume first element is max
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i]; // Update max if a larger number is found
+        }
+    }
+    return max;
+}
+
+// Example usage:
+let Arr = [5, 4, 7, 2, 6];
+console.log(findMax(Arr)); // Output: 7
+*/
+
+//* ------------------------------
+/*
+Complete the function to find the minimum in the array and return it
+
+Input :- Array and the length of the array
+
+[5,6,2,9,-2] , 5
+
+
+
+
+Output:-
+
+-2
+*/
+
+// function find_minimum(arr,length){
+//         /*Function to find the minimum in the array--> arr
+//           return the minimum value*/
+
+//     if (length === 0) return null;
+
+//     let min = arr[0];
+
+//     for (let i = 0; i < length; i++){
+//         if (arr[i] < min) {
+//             min = arr[i];
+//         }
+//     };
+//     return min
+    
+// }
+
+//* --------------------------
+//* Write a program to store first n prime numbers in an array . After storing return the array.
+
+
+/*
+
+Input:-
+
+n=5
+
+Output:- Return the output in the form of an array.
+
+2
+
+3
+
+5
+
+7
+
+11
+*/
+
+
+// function prime_numbers(n){
+// /* Function to store first n prime_numbers in an array
+//* Return the array containing the prime numbers */
+
+//     let primes = [];
+//     let num = 2;
+
+//     while (primes.length < n) {
+//         let isPrime = true;
+//         for (let i = 2; i <= Math.sqrt(num); i++){
+//             if (num % i === 0) {
+//                 isPrime = false;
+//                 break;
+//             }
+//         }
+//         if (isPrime) {
+//             primes.push(num);
+//         }
+//         num++;
+
+//     }
+//     return primes;
+    
+// }
+//* -----------------
+/*After watching the video write the code to print all the subarrays possible. Note - print in the similar way as given here.
+
+Input:-
+
+[1,2,3,4,5]
+
+Output:-
+
+1
+12
+123
+1234
+12345
+2
+23
+234
+2345
+3
+34
+345
+4
+45
+5
+*/
+/*
+*Ans
+* function printSubarrays(arr) {
+    let n = arr.length;
+
+    //* Outer loop for the starting point
+    for (let i = 0; i < n; i++) {
+        
+        //* Inner loop for the ending point
+        for (let j = i; j < n; j++) {
+            let subarray = "";
+            
+            //* Loop to collect elements from i to j
+            for (let k = i; k <= j; k++) {
+                subarray += arr[k];
+            }
+            
+            console.log(subarray);
+        }
+    }
+}
+
+// Example usage:
+let input = [1, 2, 3, 4, 5];
+printSubarrays(input);\*/
+
