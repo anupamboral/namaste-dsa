@@ -1394,3 +1394,334 @@ Output:-
 let input = [1, 2, 3, 4, 5];
 printSubarrays(input);\*/
 
+//** ---------------------
+/*
+Given an array find the maximum sum subarray. Return the maximum sum of the subarray.
+
+Input:-
+
+[5,2,-4,-5, 3,-1,2,3,1]
+
+Output:-
+
+8
+
+Reason :- 3,-1,2,3,1 is the maximum subarray possible.*/
+///* ans
+/*
+function maxSubArraySum(arr) {
+    let maxSum = -Infinity; // Start with the smallest possible number
+    let currentSum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        currentSum += arr[i];
+
+        // If currentSum is better than our previous best, update maxSum
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+        }
+
+        // If currentSum drops below 0, reset it to start a new subarray
+        if (currentSum < 0) {
+            currentSum = 0;
+        }
+    }
+
+    return maxSum;
+}
+
+// Example usage:
+let input = [5, 2, -4, -5, 3, -1, 2, 3, 1];
+console.log(maxSubArraySum(input)); // Output: 8
+*/
+
+//* -------------------------------
+/*
+Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
+A subarray is a contiguous subsequence of the array.
+ 
+Example 1:
+Input: arr = [1,4,2,5,3]
+Output: 58
+Explanation: The odd-length subarrays of arr and their sums are:
+[1] = 1
+[4] = 4
+[2] = 2
+[5] = 5
+[3] = 3
+[1,4,2] = 7
+[4,2,5] = 11
+[2,5,3] = 10
+[1,4,2,5,3] = 15
+If we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58
+*/
+//* ans
+/*
+function sumOddLengthSubarrays(arr) {
+    let totalSum = 0;
+    let n = arr.length;
+
+    //* 1. Pick the starting point
+    for (let i = 0; i < n; i++) {
+        //* 2. Pick the ending point
+        for (let j = i; j < n; j++) {
+            let length = j - i + 1;
+
+            //* 3. Only process if the length is odd
+            if (length % 2 !== 0) {
+                //* 4. Sum the elements in this specific subarray
+                for (let k = i; k <= j; k++) {
+                    totalSum += arr[k];
+                }
+            }
+        }
+    }
+
+    return totalSum;
+}
+
+//* Example usage:
+let arr = [1, 4, 2, 5, 3];
+console.log(sumOddLengthSubarrays(arr)); // Output: 58
+*/
+//*--------------------
+/*
+You have been given an array your task is to reverse the array and return the new reversed array.
+
+Example 1:-
+
+Input:-
+
+[1,2,3,4,5]
+
+Output:-
+
+[5,4,3,2,1]
+*/
+//* ans
+/*function reverseArray(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+        // Swap elements using a temporary variable
+        let temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+
+        // Move the pointers toward the center
+        left++;
+        right--;
+    }
+
+    return arr;
+}
+
+// Example usage:
+let input = [1, 2, 3, 4, 5];
+console.log(reverseArray(input)); // Output: [5, 4, 3, 2, 1]
+*/
+//* -------------------
+/*
+Given 2 Arrays concatenate both of them and return the final resultant array.
+
+Arr1 will be concatenated first followed by Arr2.
+
+
+
+
+Example 1:-
+
+Input:-
+
+Arr1=[1,2,3,4,5]
+
+Arr2=[1,2,3]
+
+Ouput:-
+
+    [1, 2, 3, 4, 5, 1, 2, 3]
+*/
+//* ans
+/*
+function concatenateArrays(arr1, arr2) {
+    let result = [];
+
+    // Add elements from the first array
+    for (let i = 0; i < arr1.length; i++) {
+        result.push(arr1[i]);
+    }
+
+    // Add elements from the second array
+    for (let j = 0; j < arr2.length; j++) {
+        result.push(arr2[j]);
+    }
+
+    return result;
+}
+
+// Example usage:
+let arr1 = [1, 2, 3, 4, 5];
+let arr2 = [1, 2, 3];
+console.log(concatenateArrays(arr1, arr2)); // Output: [1, 2, 3, 4, 5, 1, 2, 3]
+*/
+
+//* -------------------------------
+/*
+Write a program to extract all the odd numbers that are present in the given array.
+
+Store all these odd numbers in the new array and return it.
+
+Example 1:-
+
+Input:-
+
+[1,2,3,4,5]
+
+Output:-
+
+[1,3,5]*/
+
+//* ans
+function extractOdds(arr) {
+    let odds = []; // This will store our result
+
+    for (let i = 0; i < arr.length; i++) {
+        // If the remainder when divided by 2 is not 0, it's odd
+        if (arr[i] % 2 !== 0) {
+            odds.push(arr[i]);
+        }
+    }
+
+    return odds;
+}
+
+// Example usage:
+let input1 = [1, 2, 3, 4, 5];
+console.log(extractOdds(input1)); // Output: [1, 3, 5]
+
+//*  -----------------------------
+/*
+You are given an array Containing n-1 distinct numbers from range [1, n].
+There is one element missing from the range[1,n] in the array. Find that missing Number and return it.
+
+Solve it without using any extra array.
+
+Example 1:
+Input: nums = [3,4,1]
+Output: 2
+Explanation: n = 4 since there are 3 numbers, so all numbers are in the range [1,4]. 2 is the missing number in the range since it does not appear in nums.
+*/
+
+/*
+function findMissingNumber(nums) {
+    let n = nums.length + 1; // Total numbers that should be there
+    
+    //* Calculate what the sum SHOULD be
+    let expectedSum = (n * (n + 1)) / 2;
+    
+    //* Calculate what the sum IS
+    let actualSum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        actualSum += nums[i];
+    }
+    
+    //* The difference is the missing number
+    return expectedSum - actualSum;
+}
+
+//* Example usage:
+let nums = [3, 4, 1];
+console.log(findMissingNumber(nums)); // Output: 2
+*/
+
+//***---------------------
+/*
+ *write a program to find the Prefix Sum array of the given input array.
+
+Task:
+Take the input array
+Compute Prefix Sum.
+Return the prefix sum array.
+Example:
+Input:
+[1, 2, 3, 4, 5]
+Output:
+1 3 6 10 15
+*/
+//* ans
+function computePrefixSum(arr) {
+    if (arr.length === 0) return [];
+
+    let prefixSum = new Array(arr.length);
+    
+    // The first element remains the same
+    prefixSum[0] = arr[0];
+
+    // Fill the rest of the array using the previous sum
+    for (let i = 1; i < arr.length; i++) {
+        prefixSum[i] = prefixSum[i - 1] + arr[i];
+    }
+
+    return prefixSum;
+}
+
+// Example usage:
+let input = [1, 2, 3, 4, 5];
+console.log(computePrefixSum(input)); // Output: [1, 3, 6, 10, 15]
+
+//* -----------------------
+/*Write a program to find the Suffix Sum array of the given input array.
+
+Task:
+Take the input array
+Compute Suffix Sum.
+Return the Suffix sum array.
+Example:
+Input:
+[1, 2, 3, 4, 5]
+Output:
+15 14 12 9 5 */
+
+// Renamed the function to avoid conflict with the variable 'suffixArray'
+var getSuffixSum = function(arr) {
+    let n = arr.length;
+    if (n === 0) return [];
+
+    let suffixArray = new Array(n); // Used a unique name here
+
+    suffixArray[n - 1] = arr[n - 1];
+    
+    for (let i = n - 2; i >= 0; i--) {
+        // FIX: Use i + 1 to access the next element
+        suffixArray[i] = arr[i] + suffixArray[i + 1];
+    }
+    
+    return suffixArray;
+};
+
+//* --------------------------
+/*
+Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
+Return the running sum of nums.
+ 
+Example 1:
+Input: nums = [1,2,3,4]
+Output: [1,3,6,10]
+Explanation: Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4].
+*/
+//* ans
+var runningSum = function(nums) {
+    let result = new Array(nums.length);
+    
+    // The first element is always the same
+    result[0] = nums[0];
+    
+    // Loop through the array starting from the second element
+    for (let i = 1; i < nums.length; i++) {
+        // Current sum = previous total + current number
+        result[i] = result[i - 1] + nums[i];
+    }
+    
+    return result;
+};
