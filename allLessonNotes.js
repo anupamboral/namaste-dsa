@@ -1725,3 +1725,242 @@ var runningSum = function(nums) {
     
     return result;
 };
+
+//* ----------------------------
+/* 
+*You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
+A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.
+ 
+Example 1:
+Input: accounts = [[1,2,3],[3,2,1]]
+Output: 6
+Explanation:
+1st customer has wealth = 1 + 2 + 3 = 6
+2nd customer has wealth = 3 + 2 + 1 = 6
+Both customers are considered the richest with a wealth of 6 each, so return 6.*/
+
+/*
+
+var maximumWealth = function(accounts) {
+    let maxWealth = 0;
+
+    // Loop through each customer
+    for (let i = 0; i < accounts.length; i++) {
+        let currentCustomerWealth = 0;
+
+        // Loop through each bank account of the current customer
+        for (let j = 0; j < accounts[i].length; j++) {
+            currentCustomerWealth += accounts[i][j];
+        }
+
+        // Check if this customer is the richest so far
+        if (currentCustomerWealth > maxWealth) {
+            maxWealth = currentCustomerWealth;
+        }
+    }
+
+    return maxWealth;
+};
+
+// Example usage:
+let accounts = [[1, 2, 3], [3, 2, 1]];
+console.log(maximumWealth(accounts)); // Output: 6
+*/
+//* -----------------------------
+/*Write a program to find the minimum element in a 2D Array.
+
+Example 1:
+Input: arr = [[1,2,3],[5,-2,7]]
+Output: -2
+*/
+
+//* ans
+/**
+ * @param {number[][]} arr
+ * @return {number}
+ */
+function findMinIn2DArray(arr) {
+    // Edge case: check if the array or the first row is empty
+    if (arr.length === 0 || arr[0].length === 0) return null;
+
+    // Initialize minVal with the first element
+    let minVal = arr[0][0];
+
+    // Loop through each row
+    for (let i = 0; i < arr.length; i++) {
+        // Loop through each column in the current row
+        for (let j = 0; j < arr[i].length; j++) {
+            // Update minVal if a smaller number is found
+            if (arr[i][j] < minVal) {
+                minVal = arr[i][j];
+            }
+        }
+    }
+
+    return minVal;
+}
+
+// Example usage:
+let arr11 = [[1, 2, 3], [5, -2, 7]];
+console.log(findMinIn2DArray(arr11)); // Output: -2
+
+
+//*  ----------------------------------
+/*
+Given a 2D integer array matrix, return the transpose of the matrix.
+The transpose of a matrix is the matrix flipped over its main diagonal, switching the matrix's row and column indices. Example 1:
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [[1,4,7],[2,5,8],[3,6,9]]
+*/
+/**
+ * @param {number[][]} matrix
+ * @return {number[][]}
+ */
+var transpose = function(matrix) {
+    let rows = matrix.length;
+    let cols = matrix[0].length;
+    
+    // Create a new matrix with swapped dimensions (cols x rows)
+    // We initialize the rows first
+    let result = Array.from({ length: cols }, () => new Array(rows));
+
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+            // The magic swap: row index becomes column index
+            result[j][i] = matrix[i][j];
+        }
+    }
+
+    return result;
+};
+
+// Example usage:
+let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+console.log(transpose(matrix)); 
+// Output: [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+//* --------------------------
+/*
+Write a program to sort the array in descending order using Bubble sort algorithm. After Sorting return the array.
+Note both the array and size is already given.
+Input:-
+[4,3,2,5,1]
+
+Output:-
+[5,4,3,2,1]
+*/
+//* ans
+/**
+ * @param {number[]} arr
+ * @param {number} n
+ * @return {number[]}
+ */
+function bubbleSortDescending(arr, n) {
+    // Outer loop for number of passes
+    for (let i = 0; i < n - 1; i++) {
+        
+        // Inner loop for adjacent comparisons
+        for (let j = 0; j < n - 1 - i; j++) {
+            
+            // For descending: swap if the current element is SMALLER than the next
+            if (arr[j] < arr[j + 1]) {
+                // Swap elements
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+// Example usage:
+let input11 = [4, 3, 2, 5, 1];
+let size = input.length;
+console.log(bubbleSortDescending(input11, size)); // Output: [5, 4, 3, 2, 1]
+
+//* --------------------
+/*
+
+Write a program to sort the array in ascending order using Insertion sort algorithm. After Sorting return the array.
+Note both the array and size is already given.
+Input:-
+[4,3,2,5,1]
+
+Output:-
+[1,2,3,4,5]
+*/
+
+//* ans
+/**
+ * @param {number[]} arr
+ * @param {number} n
+ * @return {number[]}
+ */
+function insertionSort(arr, n) {
+    // Start from the second element (index 1)
+    for (let i = 1; i < n; i++) {
+        let key = arr[i]; // The element we are currently positioning
+        let j = i - 1;
+
+        /* Move elements of arr[0..i-1], that are
+           greater than key, to one position ahead
+           of their current position */
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j]; // Shifting to the right
+            j = j - 1;
+        }
+        
+        // Place the key in its correct sorted position
+        arr[j + 1] = key;
+    }
+    
+    return arr;
+}
+
+// Example usage:
+let input2 = [4, 3, 2, 5, 1];
+let size2 = input.length;
+console.log(insertionSort(input2, size2)); // Output: [1, 2, 3, 4, 5]
+//**------------------------
+/* Write a program to sort the array in descending order using Selection sort algorithm. After Sorting return the array.
+Note both the array and size is already given.
+Input:-
+[4,3,2,5,1]
+
+Output:-
+[5,4,3,2,1]*/
+
+//* ans
+/**
+ * @param {number[]} arr
+ * @param {number} n
+ * @return {number[]}
+ */
+function selectionSortDescending(arr, n) {
+    // One by one move the boundary of the unsorted subarray
+    for (let i = 0; i < n - 1; i++) {
+        
+        // Find the maximum element in the unsorted array
+        let maxIndex = i;
+        for (let j = i + 1; j < n; j++) {
+            // Change to < for Ascending, keep > for Descending
+            if (arr[j] > arr[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+
+        // Swap the found maximum element with the first element
+        if (maxIndex !== i) {
+            let temp = arr[i];
+            arr[i] = arr[maxIndex];
+            arr[maxIndex] = temp;
+        }
+    }
+    
+    return arr;
+}
+
+// Example usage:
+let input111 = [4, 3, 2, 5, 1];
+let size111 = input.length;
+console.log(selectionSortDescending(input111, size111)); // Output: [5, 4, 3, 2, 1]
